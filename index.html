@@ -7,13 +7,20 @@
     
     <style>
         body {
-            background: plum;
+            background: radial-gradient(circle at 0% 0.5%, rgb(241, 241, 242) 0.1%, rgb(224, 226, 228) 100.2%);
         }
 
         h1 {
             text-align: center;
         }
         h2 {
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.5;
+
+            font-size: 18px;
             text-align: center;
         }
 
@@ -60,20 +67,65 @@
             color: black;
             background: white;
         }
+        .sp-intro-picture {
+            border-radius: 10px;
+            transition: all 150ms ease-in-out;
+        }
+        .sp-intro-picture:hover {
+            filter: contrast(80%);
+            transform: scale(1.2);
+
+        }
+        .grid {
+            margin: 20px;
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            grid-gap: 15px;
+
+        }
+        .grid:hover {
+            filter: contrast(80%);
+            transform: scale(1.2);
+        }
+        .grid img {
+            width: 100%;
+            border-radius: 10px;
+            transition: all 150ms ease-in-out;
+        }
+
+        .grid img:hover {
+            transform: scale(2);
+
+        }
+        .dark {
+            background: black;
+           color: white;
+        }
+
+        .dark .container {
+            background: rgba(255, 255, 255, 0.1);
+            
+        }
+
+        .dark a {
+            color: plum;
+        }
     </style>
 </head>
 <body>
-    <button class="theme-button"> Dark Theme</button>
+    <button class="theme-button"> Change Theme</button>
     <div class="container"> 
     <h1>
         Sao Paulo
     </h1>
     <h2> Slogan</h2>
-    <img src="img/photo1.jpeg" alt="">
-    <img src="img/photo2.jpeg" alt="">
-    <img src="img/photo3.jpeg" alt="">
-    <img src="img/photo4.jpeg" alt="">
-    <img src="img/photo5.jpeg" alt="">
+    <a href="https://www.britannica.com/place/Sao-Paulo-Brazil" target="_blank"> <img src="img/photo1.jpg" alt="" class="sp-intro-picture"> </a>
+    <div class="grid"> 
+        <a href="https://en.wikipedia.org/wiki/Ibirapuera_Park" target="_blank"><img src="img/photo2.jpg" alt=""></a>
+        <a href="https://en.wikipedia.org/wiki/Paulista_Avenue" target="_blank"> <img src="img/photo3.jpg" alt=""></a>
+        <a href="https://www.eater.com/maps/coffee-cafe-brazil-sao-paulo-caffeine-map" target="_blank"><img src="img/photo4jpg.jpg" alt=""></a>
+        <a href="https://pt.wikipedia.org/wiki/Catedral_Metropolitana_de_S%C3%A3o_Paulo" target="_blank"><img src="img/catedral.webp" alt=""></a>
+</div>
     <p>
         São Paulo, Brazil’s vibrant financial center, is among the world's most populous cities, with numerous cultural institutions and a rich architectural tradition. Its iconic buildings range from its neo-Gothic cathedral and the 1929 Martinelli skyscraper to modernist architect Oscar Niemeyer’s curvy Edifício Copan. The colonial-style Pátio do Colégio church marks where Jesuit priests founded the city in 1554. 
     </p>
@@ -81,5 +133,19 @@
     <button> Learn more </button>
 </div>
     <footer> Coded with 💜 by Rubia Agripino </footer>
+    <script>
+        function changeTheme() {
+            let body = document.querySelector("body");
+
+            if (body.classList.contains("dark")) {
+                body.classList.remove("dark");
+            } else {
+                body.classList.add("dark");
+            }
+        }
+
+        let themeButton = document.querySelector(".theme-button");
+        themeButton.addEventListener("click", changeTheme);
+    </script>
 </body>
 </html>
